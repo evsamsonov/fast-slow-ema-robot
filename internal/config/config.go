@@ -24,7 +24,6 @@ type Config struct {
 type TinkoffConfig struct {
 	Token     string `validate:"required"`
 	AccountID string `validate:"required"`
-	AppName   string
 }
 
 type StrategyConfig struct {
@@ -57,7 +56,6 @@ func Parse() (Config, error) {
 		Tinkoff: TinkoffConfig{
 			Token:     viper.GetString("tinkoff.token"),
 			AccountID: viper.GetString("tinkoff.AccountId"),
-			AppName:   viper.GetString("tinkoff.appName"),
 		},
 		Strategy: StrategyConfig{
 			FastEmaSmoothInterval: viper.GetInt("strategy.fastEmaSmoothInterval"),

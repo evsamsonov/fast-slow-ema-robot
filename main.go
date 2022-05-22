@@ -15,6 +15,8 @@ import (
 	"go.uber.org/zap"
 )
 
+const appName = "evsamsonov.fast-slow-ema-robot"
+
 func main() {
 	cfg, err := config.Parse()
 	if err != nil {
@@ -34,7 +36,7 @@ func main() {
 		cfg.InstrumentFIGI,
 		cfg.CandleInterval,
 		fastslowema.WithLogger(logger),
-		fastslowema.WithAppName(cfg.Tinkoff.AppName),
+		fastslowema.WithAppName(appName),
 		fastslowema.WithStopLoss(cfg.StopLossIndent),
 		fastslowema.WithSmoothInterval(cfg.Strategy.FastEmaSmoothInterval, cfg.Strategy.SlowEmaSmoothInterval),
 		fastslowema.WithFlatMaxDiff(cfg.Strategy.FlatMaxDiff),
@@ -49,7 +51,7 @@ func main() {
 		cfg.InstrumentFIGI,
 		cfg.TradedQuantity,
 		tinkoff.WithLogger(logger),
-		tinkoff.WithAppName(cfg.Tinkoff.AppName),
+		tinkoff.WithAppName(appName),
 	)
 
 	var wg sync.WaitGroup

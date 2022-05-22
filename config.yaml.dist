@@ -1,2 +1,14 @@
-
+logLevel: "debug"   # debug, info, error
+instrumentFigi: "BBG004730N88"  # SBER
+stopLossIndent: 1.7
+tradedQuantity: 1
+candleInterval: "1min"  # 1min, 5min, 15min, 1hour
+tinkoff:
+  token: ""
+  appName: "evsamsonov.fast-slow-ema-robot"
+  accountId: ""
+strategy:
+  fastEmaSmoothInterval: 14
+  slowEmaSmoothInterval: 50
+  flatMaxDiff: 0.15
 
